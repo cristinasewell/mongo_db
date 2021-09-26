@@ -68,11 +68,22 @@ netstat -an | grep 27017
 > **_Check out the databases and collections_**
 
 ```bash
+# start up a new database by switching to it (creates it if does not exist).
+# The db does not exist until you create a collection
+> use travel_db
+> db
 # show all current databases
 > show dbs
 # list all collections withing the current database
 > show collections
 ```
+
+> **_Create a collection_**
+
+```bash
+> db.createCollection("destinations")
+```
+
 
 > **_Insert Data_**
 ```bash
@@ -80,9 +91,8 @@ netstat -an | grep 27017
 > db.colelctionName.insert({key:value})
 
 # Example:
-> db.destination.insert({"continent": "Europe", "country": "Italy", 
+> db.destinations.insert({"continent": "Europe", "country": "Italy", 
    "major_cities": ["Milan", "Rome", "Florence", "Turin", "Rome"]})
-   WriteResult({ "nInserted" : 1 })
 ```
 
 > **_Find Data_**

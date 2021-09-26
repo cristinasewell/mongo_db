@@ -1,4 +1,5 @@
 import pymongo
+import datetime
 
 
 # create a connection
@@ -25,27 +26,38 @@ db.destinations.insert_one(
 )
 
 # updating a document - adding an item to a document array
-db.destinations.update_one(
-    {
-        "country": "Moldova"
-    },
-    {"$push": 
-        {"major_cities": "Antonesti"}
-    }
-)
+# db.destinations.update_one(
+#     {
+#         "country": "Moldova"
+#     },
+#     {"$push": 
+#         {"major_cities": "Antonesti"}
+#     }
+# )
 
-# deleting a field from document
-db.destinations.update_one(
-    {"country": "Moldova"},
-    {"$unset":
-        {"major_cities": ""}
-    }
-    )
+# # deleting a field from document
+# db.destinations.update_one(
+#     {"country": "Moldova"},
+#     {"$unset":
+#         {"major_cities": ""}
+#     }
+#     )
 
 
 # deleting a document from a collection
-db.destinations.delete_one(
-    {
-        "country": "Moldova"
-    }
-)
+# db.destinations.delete_one(
+#     {
+#         "country": "Moldova"
+#     }
+# )
+
+# A dictionary that represents the document to be inserted
+post = {
+    "continent": "Europe",
+    "country": "Romania",
+    "major_cities": ["Bucuresti", "Cluj-Napoca", 'Iasi', 'Timisoara'],
+    "date": datetime.datetime.utcnow()
+}
+# Insert the document into the database
+# The database and collection, if they don't already exist, will be created at this point.
+db.destinations.insert_one(post)

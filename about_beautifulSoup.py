@@ -66,6 +66,7 @@ def using_requests():
         try:
             title = res.find("title").text
             print(title)
+        
         except AttributeError as err:
             print(err)
 

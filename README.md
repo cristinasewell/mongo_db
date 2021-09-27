@@ -161,3 +161,39 @@ This method will update all of the records that meet this given criteria.
     - ```bash
       > db.dropDatabase()
       ```
+
+
+
+## Misceleanous
+---
+
+> **_Save an iPython sesion_**
+
+```python
+In [1] : import numpy as np
+....
+In [135]: counter=collections.Counter(mapusercluster[3])
+In [136]: counter
+Out[136]: Counter({2: 700, 0: 351, 1: 233})
+
+# You want to save lines from 1 till 135 then on the same ipython session use this command
+
+In [137]: %save test.py 1-135
+
+
+# Or Append with -a 
+In [137]: %save -a test.py 1-135
+
+```
+
+> **_Convert from `.py` to `.ipynb`_**
+
+```bash
+# you can simply rename it:
+mv <file>.py <file>.ipynb
+
+# or
+# install p2j if you don't have it yet
+p2j myscript.py
+```
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta char="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Scraping Mars</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+<!--scraping option-->
+<div class="container">
+    <div class="jumbotron text-center" style="background-color: cadetblue;">
+        <h1 style="color: rgb(7, 7, 29);">Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg", style="background-color: black;" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+</div>
+
+<!-- The latest news about Mars -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-lg-10">
+            <h1 style="color: rgb(52, 52, 105);">Latest Mars News</h1>
+            <hr class="vertical-line">
+            <h4>{{mars_info.nasa_news[0]['title']}}</h4>
+            <p>{{mars_info.nasa_news[0]['text']}}</p>
+            <br>
+        </div>
+    </div>
+</div>
+
+<!-- Mars - The Featured Image and a Table with Facts -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-7 col-lg-7">
+            <h2 style="color: rgb(17, 57, 75);">Featured Mars Image</h2>
+            <hr class="vertical-line" , style="border: 2px solid grey;">
+            <div>
+                <img src="{{mars_info.mars_space_img}}" , class="img-fluid" , alt="Featured Image">
+            </div>
+        </div>
+
+        <div class="col-sm-8 col-md-4 col-lg-4">
+            <h2 style="color: rgb(17, 57, 75);">Mars Facts</h2>
+            <hr class="vertical-line" style="border: 2px solid grey;">
+            {{mars_info.mars_facts|safe}}
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row" , style="text-align: center;">
+        <h2 class="heading text-center" , style="color: rgb(52, 52, 105);">Mars Hemispheres</h2>
+        <hr class="vertical-line",  style="border: 1px solid rgb(48, 39, 100);">
+        <br>
+        <!-- Cerberus Hemisphere Enhanced-->
+        <div class="col-md-12 col-md-6 col-lg-6">
+            <img src="{{mars_info.mars_hemispheres[0]['img_url']}}" , class="img-fluid" , style="max-width: 80%;" ,
+                alt="{{mars_info.mars_hemispheres[0]['title']}}">
+            <div class="caption " style="font-weight: bold; font: 14pt sans-serif;">
+                {{mars_info.mars_hemispheres[0]['title']}}
+            </div>
+        </div>
+        <!-- Schiaparelli Hemisphere Enhanced -->
+        <div class="col-md-12 col-md-6 col-lg-6">
+            <img src="{{mars_info.mars_hemispheres[1]['img_url']}}" , class="img-fluid" , style="max-width: 80%;" ,
+                alt="{{mars_info.mars_hemispheres[1]['title']}}">
+            <div class="caption " style="font-weight: bold; font: 14pt sans-serif;">
+                {{mars_info.mars_hemispheres[1]['title']}}
+            </div>
+        </div>
+        <!-- closing first row -->
+    </div>
+
+    <!-- second row of the hemisphere pictures-->
+    <div class="row" , style="text-align: center;">
+        <!-- Syrtis Major Hemisphere Enhanced -->
+        <div class="col-md-12 col-md-6 col-lg-6">
+            <img src="{{mars_info.mars_hemispheres[2]['img_url']}} " , class="img-fluid" , style="max-width: 80%;" ,
+                alt="{{mars_info.mars_hemispheres[2]['title']}}">
+            <div class="caption " style="font-weight: bold; font: 14pt sans-serif;">
+                {{mars_info.mars_hemispheres[2]['title']}}
+            </div>
+        </div>
+        <!-- Valles Marineris Hemisphere Enhanced -->
+        <div class="col-md-12 col-md-6 col-lg-6">
+            <img src="{{mars_info.mars_hemispheres[3]['img_url']}}" , class="img-fluid" , style="max-width: 80%;" ,
+                alt="{{mars_info.mars_hemispheres[3]['title']}}">
+            <div class="caption " style="font-weight: bold; font: 14pt sans-serif;">
+                {{mars_info.mars_hemispheres[3]['title']}}
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

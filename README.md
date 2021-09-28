@@ -68,13 +68,13 @@ netstat -an | grep 27017
 > **_Check out the databases and collections_**
 
 ```bash
-# start up a new database by switching to it (creates it if does not exist).
+# start up a new database by switching to it (creates it if it does not exist).
 # The db does not exist until you create a collection
 > use travel_db
 > db
 # show all current databases
 > show dbs
-# list all collections withing the current database
+# list all collections within the current database
 > show collections
 ```
 
@@ -99,7 +99,7 @@ netstat -an | grep 27017
 ```bash
 # return values within specific collection in a pretty way
 > db.destinations.find().pretty()
-# find specific dobument withing a collections
+# find specific document within a collections
 > db.destinations.find({"key":value})
 ```
 
@@ -115,14 +115,14 @@ netstat -an | grep 27017
       > db.destinations.update({"countr": "USA"}, {$set: {"continent": "Antarctica"}})
       ```
 
-* The `updateMany()` method can be used to update multiple documents intead. 
+* The `updateMany()` method can be used to update multiple documents instead. 
 This method will update all of the records that meet this given criteria.
 
     - ```bash
       > db.destinations.updateMany({"continent": "Europe"}, {$set: {"continent": "Antarctica"}})
       ```
 
-* If the document being searched withing a collection does not exists, the parameter `{upsert:true}` must be passed in order to create the nonexisting document.
+* If the document being searched within a collection does not exists, the parameter `{upsert:true}` must be passed in order to create the nonexisting document.
 
     - ```bash
        > db.destinations.update({"country": "Brazil"}, {$set: {"capital": "Brasilia"}}, {upsert: true})
@@ -138,13 +138,13 @@ This method will update all of the records that meet this given criteria.
 
 > **_Remove Data_**
 
-* In order to delte the documents from a Mongo collection simply pass an empty object into the `remove()` method. Note that this command is extremely riscky as **ALL DOCUMENTS** from the collection will drop and **ALL DATA** will be lost.
+* In order to delete the documents from a Mongo collection simply pass an empty object into the `remove()` method. Note that this command is extremely risky as **ALL DOCUMENTS** from the collection will drop and **ALL DATA** will be lost.
 
     - ```bash
       > db.destinations.remove({})
       ```
 
-* Passing an object into `remove()` method will stipulate what `{key:value}` paring to search for. Adding the `justOne` parameter will remove only a single document. Without passing the `justOne` parameter, all documents mathching the `{key:value}` pairing will be dropped from the collection.
+* Passing an object into the `remove()` method will stipulate what `{key:value}` pairing to search for. Adding the `justOne` parameter will remove only a single document. Without passing the `justOne` parameter, all documents matching the `{key:value}` pairing will be dropped from the collection.
 
     - ```bash
       > db.destinations.remove({"country": "USA"}, {justOne: true}) 
@@ -164,7 +164,7 @@ This method will update all of the records that meet this given criteria.
 
 
 
-## Misceleanous
+## Miscellaneous
 ---
 
 > **_Save an iPython sesion_**
